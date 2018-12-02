@@ -2,6 +2,15 @@
   "version": 3,
   "targets": {
     ".NETCoreApp,Version=v2.2": {
+      "BouncyCastle/1.8.4": {
+        "type": "package",
+        "compile": {
+          "lib/BouncyCastle.Crypto.dll": {}
+        },
+        "runtime": {
+          "lib/BouncyCastle.Crypto.dll": {}
+        }
+      },
       "Microsoft.NETCore.App/2.2.0-preview3-27014-02": {
         "type": "package",
         "dependencies": {
@@ -220,6 +229,17 @@
     }
   },
   "libraries": {
+    "BouncyCastle/1.8.4": {
+      "sha512": "A4VudKfo3Ishxo7pxqkrg2mScQx27jqDLLpi6lpbc0cMONhbykwkr9dOENt9/hnCJgqzRUE0xNCC3haCQxO9Ig==",
+      "type": "package",
+      "path": "bouncycastle/1.8.4",
+      "files": [
+        "README.md",
+        "bouncycastle.1.8.4.nupkg.sha512",
+        "bouncycastle.nuspec",
+        "lib/BouncyCastle.Crypto.dll"
+      ]
+    },
     "Microsoft.NETCore.App/2.2.0-preview3-27014-02": {
       "sha512": "gfJ+hoCtgmWuGSSRmJdzcGNXn2Vy8RThAIe7Qg/TGI0ecCCA0qnle9QFX6gOOcViEfsRwBO5qHSoAkaxt1cPHQ==",
       "type": "package",
@@ -722,6 +742,7 @@
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v2.2": [
+      "BouncyCastle >= 1.8.4",
       "Microsoft.NETCore.App >= 2.2.0-preview3-27014-02",
       "Newtonsoft.Json >= 12.0.1"
     ]
@@ -776,6 +797,10 @@
             "version": "2.2.0-preview3-27014-02",
             "autoReferenced": true
           },
+          "BouncyCastle": {
+            "target": "Package",
+            "version": "1.8.4"
+          },
           "Newtonsoft.Json": {
             "target": "Package",
             "version": "12.0.1"
@@ -788,5 +813,17 @@
         "warn": true
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "O pacote 'BouncyCastle 1.8.4' foi restaurado usando '.NETFramework,Version=v4.6.1' em vez da estrutura de destino do projeto '.NETCoreApp,Version=v2.2'. Esse pacote pode não ser totalmente compatível com o seu projeto.",
+      "libraryId": "BouncyCastle",
+      "targetGraphs": [
+        ".NETCoreApp,Version=v2.2"
+      ]
+    }
+  ]
 }
