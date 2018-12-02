@@ -22,7 +22,7 @@ namespace NoobCoins
                 
                 blockchain.Add(new Block("Yo im the second block", blockchain[(blockchain.Count - 1)].hash));
                 Console.WriteLine($"Trying to Mine block {i}... ");
-                blockchain[1].mineBlock(difficulty);
+                blockchain[i].mineBlock(difficulty);
 
                 Console.WriteLine("\nBlockchain is Valid: " + isChainValid());
 
