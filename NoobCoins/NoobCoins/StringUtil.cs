@@ -48,12 +48,6 @@ namespace NoobCoins
                 byte[] sigBytes = signer.GenerateSignature();
 
                 output= sigBytes;
-                /*   var encoder = new ASCIIEncoding();
-                   var dsa = SignerUtilities.GetSigner("ECDSA");
-                   dsa.Init(false,privateKey);
-                   dsa.BlockUpdate(encoder.GetBytes(input),0,encoder.GetBytes(input).Length);
-                   byte[] realSig = dsa.GenerateSignature();
-                   output = realSig;*/
             }
             catch (Exception e)
             {
@@ -67,14 +61,7 @@ namespace NoobCoins
         {
             try
             {
-                /*
-                var encoder = new ASCIIEncoding();
-                var inputData = encoder.GetBytes(data);
-                var signer = SignerUtilities.GetSigner("ECDSA");
-                signer.Init(false, publicKey);
-                signer.BlockUpdate(inputData, 0, inputData.Length);
-                return signer.VerifySignature(signature);*/
-
+               
                 byte[] msgBytes = Encoding.UTF8.GetBytes(data);
                 byte[] sigBytes = signature;
 
@@ -117,11 +104,6 @@ namespace NoobCoins
             String merkleRoot = (treeLayer.Count == 1) ? treeLayer[0] : "";
             return merkleRoot;
         }
-        /*public static string Base64Decode(string base64EncodedData) 
-         * {
-            var base64EncodedBytes = System.Convert.FromBase64String(base64EncodedData);
-            return System.Text.Encoding.UTF8.GetString(base64EncodedBytes);
-        }*/
     }
 
 
