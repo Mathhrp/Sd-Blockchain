@@ -8,7 +8,7 @@ namespace NoobCoins
     class Program
     {
         public static List<Block> blockchain = new List<Block>();
-        public static int difficulty = 5;
+        public static int difficulty = 2;
         static void Main(string[] args)
         {
             Console.WriteLine("Hello World!");
@@ -28,7 +28,8 @@ namespace NoobCoins
             string blockchainJson = JsonConvert.SerializeObject(blockchain);
             Console.WriteLine(blockchainJson);
 
-            Console.Read();
+            Console.ReadKey();
+            
         }
 
         public static Boolean isChainValid()
