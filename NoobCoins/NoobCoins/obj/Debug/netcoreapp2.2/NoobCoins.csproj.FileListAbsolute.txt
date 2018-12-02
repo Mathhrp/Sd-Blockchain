@@ -1,0 +1,11 @@
+C:\Users\mathe\Documents\SD\Sd-Blockchain\NoobCoins\NoobCoins\bin\Debug\netcoreapp2.2\NoobCoins.deps.json
+C:\Users\mathe\Documents\SD\Sd-Blockchain\NoobCoins\NoobCoins\bin\Debug\netcoreapp2.2\NoobCoins.runtimeconfig.json
+C:\Users\mathe\Documents\SD\Sd-Blockchain\NoobCoins\NoobCoins\bin\Debug\netcoreapp2.2\NoobCoins.runtimeconfig.dev.json
+C:\Users\mathe\Documents\SD\Sd-Blockchain\NoobCoins\NoobCoins\bin\Debug\netcoreapp2.2\NoobCoins.dll
+C:\Users\mathe\Documents\SD\Sd-Blockchain\NoobCoins\NoobCoins\bin\Debug\netcoreapp2.2\NoobCoins.pdb
+C:\Users\mathe\Documents\SD\Sd-Blockchain\NoobCoins\NoobCoins\obj\Debug\netcoreapp2.2\NoobCoins.csprojResolveAssemblyReference.cache
+C:\Users\mathe\Documents\SD\Sd-Blockchain\NoobCoins\NoobCoins\obj\Debug\netcoreapp2.2\NoobCoins.csproj.CoreCompileInputs.cache
+C:\Users\mathe\Documents\SD\Sd-Blockchain\NoobCoins\NoobCoins\obj\Debug\netcoreapp2.2\NoobCoins.AssemblyInfoInputs.cache
+C:\Users\mathe\Documents\SD\Sd-Blockchain\NoobCoins\NoobCoins\obj\Debug\netcoreapp2.2\NoobCoins.AssemblyInfo.cs
+C:\Users\mathe\Documents\SD\Sd-Blockchain\NoobCoins\NoobCoins\obj\Debug\netcoreapp2.2\NoobCoins.dll
+C:\Users\mathe\Documents\SD\Sd-Blockchain\NoobCoins\NoobCoins\obj\Debug\netcoreapp2.2\NoobCoins.pdb

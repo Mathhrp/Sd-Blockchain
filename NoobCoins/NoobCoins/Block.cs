@@ -16,6 +16,13 @@ namespace NoobCoins
             this.data = data;
             this.previoushash = previousHash;
             this.timeStamp = Convert.ToInt64(DateTime.Now.ToString("yyyyMMssHHmmssffff"));
+            this.hash = calculateHash();
+        }
+
+        public string calculateHash()
+        {
+            String calculatehash = StringUtil.applySha256(previoushash + timeStamp.ToString() + data);
+            return calculatehash;
         }
     }
 }

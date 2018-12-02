@@ -7,7 +7,6 @@ namespace NoobCoins
 {
     public class StringUtil
     {
-        public static object Enconding { get; private set; }
 
         public static string applySha256(string imput)
         {
