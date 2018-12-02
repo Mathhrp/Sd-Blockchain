@@ -24,15 +24,6 @@ namespace NoobCoins
         {
             try
             {
-                /* KeyPairGenerator keyGen = KeyPairGenerator.getInstance("ECDSA", "BC");
-                 SecureRandom random = SecureRandom.getInstance("SHA1PRNG");
-                 ECGenParameterSpec ecSpec = new ECGenParameterSpec("prime192v1");
-                 // Initialize the key generator and generate a KeyPair
-                 keyGen.initialize(ecSpec, random);   //256 bytes provides an acceptable security level
-                 KeyPair keyPair = keyGen.generateKeyPair();
-                 // Set the public and private keys from the keyPair
-                 privateKey = keyPair.getPrivate();
-                 publicKey = keyPair.getPublic();*/
                 ECKeyPairGenerator gen = new ECKeyPairGenerator("ECDSA");
                 SecureRandom secureRandom = new SecureRandom();
                 Org.BouncyCastle.Asn1.X9.X9ECParameters ecp = Org.BouncyCastle.Asn1.Sec.SecNamedCurves.GetByName("secp224k1");
