@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -16,19 +17,18 @@ namespace NoobCoins
             blockchain.Add(new Block("Hi im the first block", "0"));
             Console.WriteLine("Trying to Mine block 1... ");
             blockchain[0].mineBlock(difficulty);
-            blockchain.Add(new Block("Yo im the second block", blockchain[(blockchain.Count - 1)].hash));
-            Console.WriteLine("Trying to Mine block 2... ");
-            blockchain[1].mineBlock(difficulty);
-            blockchain.Add(new Block("Hey im the third block", blockchain[(blockchain.Count - 1)].hash));
-            Console.WriteLine("Trying to Mine block 2... ");
-            blockchain[2].mineBlock(difficulty);
+            for (int i = 0; ; i++)
+            {
+                
+                blockchain.Add(new Block("Yo im the second block", blockchain[(blockchain.Count - 1)].hash));
+                Console.WriteLine($"Trying to Mine block {i}... ");
+                blockchain[1].mineBlock(difficulty);
 
-            Console.WriteLine("\nBlockchain is Valid: " + isChainValid());
+                Console.WriteLine("\nBlockchain is Valid: " + isChainValid());
 
-            string blockchainJson = JsonConvert.SerializeObject(blockchain);
-            Console.WriteLine(blockchainJson);
-
-            Console.ReadKey();
+                string blockchainJson = JsonConvert.SerializeObject(blockchain);
+                Console.WriteLine(blockchainJson);
+            }
             
         }
 
