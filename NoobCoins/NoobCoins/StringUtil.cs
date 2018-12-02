@@ -93,10 +93,36 @@ namespace NoobCoins
         {
             return System.Convert.ToBase64String(System.Text.Encoding.UTF8.GetBytes(Convert.ToString(key.GetHashCode())));
         }
+
+        //Tacks in array of transactions and returns a merkle root.
+        public static string getMerkleRoot(List<Transaction> transactions)
+        {
+            int count = transactions.Count;
+            List<String> previousTreeLayer = new List<String>();
+            foreach (Transaction transaction in transactions)
+            {
+                previousTreeLayer.Add(transaction.transactionId);
+            }
+            List<String> treeLayer = previousTreeLayer;
+            while (count > 1)
+            {
+                treeLayer = new List<String>();
+                for (int i = 1; i < previousTreeLayer.Count; i++)
+                {
+                    treeLayer.Add(applySha256(previousTreeLayer[(i - 1)] + previousTreeLayer[i]));
+                }
+                count = treeLayer.Count;
+                previousTreeLayer = treeLayer;
+            }
+            String merkleRoot = (treeLayer.Count == 1) ? treeLayer[0] : "";
+            return merkleRoot;
+        }
         /*public static string Base64Decode(string base64EncodedData) 
          * {
             var base64EncodedBytes = System.Convert.FromBase64String(base64EncodedData);
             return System.Text.Encoding.UTF8.GetString(base64EncodedBytes);
         }*/
     }
+
+
 }

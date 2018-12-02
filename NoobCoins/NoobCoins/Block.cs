@@ -8,6 +8,8 @@ namespace NoobCoins
     {
         public string hash { get; set; }
         public string previoushash { get; set; }
+        public string merkleRoot;
+        public List<Transaction> transactions = new List<Transaction>(); //our data will be a simple message.
         private string data { get; set; }
         public long timeStamp { get; set; }
         private int nonce;
@@ -15,6 +17,14 @@ namespace NoobCoins
         public Block(string data,string previousHash)
         {
             this.data = data;
+            this.previoushash = previousHash;
+            this.timeStamp = Convert.ToInt64(DateTime.Now.ToString("yyyyMMssHHmmssffff"));
+            this.hash = calculateHash();
+        }
+
+        public Block(string previousHash)
+        {
+            
             this.previoushash = previousHash;
             this.timeStamp = Convert.ToInt64(DateTime.Now.ToString("yyyyMMssHHmmssffff"));
             this.hash = calculateHash();
@@ -35,6 +45,24 @@ namespace NoobCoins
                 hash = calculateHash();
             }
            Console.Write("Block Mined!!! : " + hash);
+        }
+
+        //Add transactions to this block
+        public bool addTransaction(Transaction transaction)
+        {
+            //process transaction and check if valid, unless block is genesis block then ignore.
+            if (transaction == null) return false;
+            if ((this.previoushash != "0"))
+            {
+                if ((transaction.processTransaction() != true))
+                {
+                    Console.WriteLine("Transaction failed to process. Discarded.");
+                    return false;
+                }
+            }
+            transactions.Add(transaction);
+            Console.WriteLine("Transaction Successfully added to Block");
+            return true;
         }
     }
 }

@@ -54,5 +54,73 @@ namespace NoobCoins
             String data = StringUtil.getStringFromKey(sender) + StringUtil.getStringFromKey(reciepient) + Convert.ToString(value);
             return StringUtil.verifyECDSASig(sender, data, signature);
         }
+        //Returns true if new transaction could be created.	
+        public bool processTransaction()
+        {
+
+            if (verifiySignature() == false)
+            {
+                Console.WriteLine("#Transaction Signature failed to verify");
+                return false;
+            }
+
+            //gather transaction inputs (Make sure they are unspent):
+            foreach (TransactionInput i in inputs)
+            {
+                Program.UTXOs.TryGetValue(i.transactionOutputId,out i.UTXO);
+            }
+
+            //check if transaction is valid:
+            if (getInputsValue() < Program.minimumTransaction)
+            {
+                Console.WriteLine("#Transaction Inputs to small: " + getInputsValue());
+                return false;
+            }
+
+            //generate transaction outputs:
+            float leftOver = getInputsValue() - value; //get value of inputs then the left over change:
+            transactionId = calulateHash();
+            outputs.Add(new TransactionOutput(this.reciepient, value, transactionId)); //send value to recipient
+            outputs.Add(new TransactionOutput(this.sender, leftOver, transactionId)); //send the left over 'change' back to sender		
+
+            //add outputs to Unspent list
+            foreach (TransactionOutput o in outputs)
+            {
+                Program.UTXOs.Add(o.id, o);
+            }
+
+            //remove transaction inputs from UTXO lists as spent:
+            foreach (TransactionInput i in inputs)
+            {
+                if (i.UTXO == null) continue; //if Transaction can't be found skip it 
+                Program.UTXOs.Remove(i.UTXO.id);
+            }
+
+            return true;
+        }
+
+        //returns sum of inputs(UTXOs) values
+        public float getInputsValue()
+        {
+            float total = 0;
+            foreach (TransactionInput i in inputs)
+            {
+                if (i.UTXO == null) continue; //if Transaction can't be found skip it 
+                total += i.UTXO.value;
+            }
+            return total;
+        }
+
+        //returns sum of outputs:
+        public float getOutputsValue()
+        {
+            float total = 0;
+            foreach (TransactionOutput o in outputs)
+            {
+                total += o.value;
+            }
+            return total;
+        }
+
     }
 }
