@@ -688,11 +688,11 @@
       "hideWarningsAndErrors": true
     },
     "restore": {
-      "projectUniqueName": "C:\\Users\\mathe\\source\\repos\\NoobCoins\\NoobCoins\\NoobCoins.csproj",
+      "projectUniqueName": "C:\\Users\\mathe\\Documents\\SD\\Sd-Blockchain\\NoobCoins\\NoobCoins\\NoobCoins.csproj",
       "projectName": "NoobCoins",
-      "projectPath": "C:\\Users\\mathe\\source\\repos\\NoobCoins\\NoobCoins\\NoobCoins.csproj",
+      "projectPath": "C:\\Users\\mathe\\Documents\\SD\\Sd-Blockchain\\NoobCoins\\NoobCoins\\NoobCoins.csproj",
       "packagesPath": "C:\\Users\\mathe\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\mathe\\source\\repos\\NoobCoins\\NoobCoins\\obj\\",
+      "outputPath": "C:\\Users\\mathe\\Documents\\SD\\Sd-Blockchain\\NoobCoins\\NoobCoins\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
